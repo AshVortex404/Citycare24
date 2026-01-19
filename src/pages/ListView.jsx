@@ -4,7 +4,8 @@ import IssueCard from '../components/IssueCard';
 import io from 'socket.io-client';
 import './ListView.css';
 
-const socket = io('http://localhost:5000');
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+const socket = io(SOCKET_URL);
 
 const ListView = () => {
     const [issues, setIssues] = useState([]);
